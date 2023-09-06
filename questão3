@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Solicitar ao usuário o tamanho da senha desejada
+read -p "Digite o tamanho da senha desejada: " tamanho
+
+# Verificar se o tamanho é um número positivo
+if [[ ! $tamanho =~ ^[0-9]+$ ]] || [[ $tamanho -lt 1 ]]; then
+  echo "Tamanho inválido. Por favor, digite um número positivo."
+  exit 1
+fi
+
+# Caracteres que serão usados para gerar a senha
+caracteres="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
+# Gerar a senha aleatória
+senha=""
+for ((i = 0; i < tamanho; i++)); do
+  indice=$((RANDOM % ${#caracteres}))
+  senha="${senha}${caracteres:indice:1}"
+done
+
+echo "Senha gerada: $senha"
