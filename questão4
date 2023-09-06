@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Diretório onde os arquivos .log serão buscados
+diretorio="/var/log"
+
+# Executar o comando find para encontrar os arquivos .log com mais de 7 dias
+# e, em seguida, removê-los
+find "$diretorio" -name "*.log" -type f -mtime +7 -exec rm {} \;
+
+echo "Arquivos .log com mais de 7 dias de atividade foram removidos."
