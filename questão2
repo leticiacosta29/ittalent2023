@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Loop para criar 10 diretórios
+for i in {1..10}; do
+  nome_diretorio="diretorio_$i"
+  mkdir "$nome_diretorio"
+  echo "Diretório $nome_diretorio criado."
+done
+
+echo "Criação de diretórios concluída."
