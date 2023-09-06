@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Verifique se um arquivo foi fornecido como argumento
+if [ $# -eq 0 ]; then
+  echo "Por favor, forneça o nome do arquivo como argumento."
+  exit 1
+fi
+
+# Verifique se o arquivo existe
+if [ ! -f "$1" ]; then
+  echo "O arquivo $1 não existe."
+  exit 1
+fi
+
+# Use o comando wc para contar as palavras no arquivo
+num_palavras=$(wc -w "$1" | awk '{print $1}')
+
+echo "O arquivo $1 contém $num_palavras palavras."
